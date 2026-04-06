@@ -4,7 +4,7 @@
 
 Instead of writing a new resume from scratch, you upload your current PDF resume and paste the job description you want to apply for. The AI extracts your real background and rewrites, reorders, and optimizes your bullet points and skills to create the perfect tailored resume—all while strictly preserving your real data.
 
-![ResumeForge AI Preview](public/preview.png) *(Preview placeholder)*
+
 
 ##  Features
 
