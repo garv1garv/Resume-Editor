@@ -663,6 +663,51 @@ textarea.jd-textarea {
 
 .section-header {
   padding: 16px 20px;
+}
+
+.logos-grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.logo-item {
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: grayscale(1) brightness(2);
+  opacity: 0.6;
+}
+
+.logo-item:hover {
+  color: #ffffff;
+  opacity: 1;
+  filter: grayscale(0) brightness(1.2);
+  transform: scale(1.05);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.header-title {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(to right, #ffffff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-header {
+  padding: 16px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
