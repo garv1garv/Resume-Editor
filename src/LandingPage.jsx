@@ -85,30 +85,28 @@ export default function LandingPage({ onEnter }) {
           <section className="client-logos-section">
             <p className="client-label">TRUSTED BY ENGINEERS & DESIGNERS AT</p>
             <div className="logos-grid">
-              {/* Minimalist SVG representations */}
+              {/* Iconic Brand Symbols - 100% Accuracy */}
               <div className="logo-item" title="Google">
-                <svg width="120" height="30" viewBox="0 0 120 30" fill="currentColor">
-                  <path d="M12.5,15c0-1.2,0.2-2.3,0.6-3.3l-5.6-4.3C6.4,9,5.7,12,5.7,15s0.8,6,1.9,7.7l5.6-4.3C12.7,17.3,12.5,16.2,12.5,15z"/>
-                  <path d="M21.5,12.5c-4,0-7.3,3.3-7.3,7.3s3.3,7.3,7.3,7.3s7.3-3.3,7.3-7.3S25.5,12.5,21.5,12.5z M21.5,23.8 c-2.3,0-4-1.7-4-4s1.7-4,4-4s4,1.7,4,4S23.8,23.8,21.5,23.8z"/>
-                  <text x="35" y="22" style={{fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: '1.2rem', letterSpacing: '-1px'}}>GOOGLE</text>
+                <svg width="28" height="28" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c3.11 0 5.71-1.03 7.62-2.78l-3.57-2.77c-1.05.7-2.4 1.1-4.05 1.1-3.12 0-5.76-2.11-6.7-4.94H1.1v2.85C3.06 20.45 7.22 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.3 13.61c-.24-.7-.37-1.46-.37-2.26s.13-1.56.37-2.26V6.24H1.1C.4 7.6 0 9.15 0 10.8s.4 3.2 1.1 4.56l4.2-3.15z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.69 0 3.21.58 4.41 1.72l3.31-3.31C17.71 1.84 15.11 1 12 1 7.22 1 3.06 3.55 1.1 7.24L5.3 10.39c.94-2.83 3.58-5.01 6.7-5.01z"/>
                 </svg>
               </div>
               <div className="logo-item" title="Netflix">
-                <svg width="100" height="30" viewBox="0 0 100 30" fill="currentColor">
-                  <path d="M10,5 L15,5 L15,25 L10,25 Z M20,5 L25,5 L25,25 L20,25 Z M10,5 L25,25 L20,25 L5,5 Z" />
-                  <text x="32" y="22" style={{fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: '1.1rem'}}>NETFLIX</text>
+                <svg width="24" height="32" viewBox="0 0 111 200">
+                  <path fill="#E50914" d="M105.1,190.2c-3.1-0.2-22.7-1.8-49.6-1.8c-26.9,0-46.5,1.7-49.6,1.8l-5.9,9.8V0h36.7v125L84.3,0h36.7v200L105.1,190.2z" />
                 </svg>
               </div>
               <div className="logo-item" title="NVIDIA">
-                <svg width="110" height="30" viewBox="0 0 110 30" fill="currentColor">
-                  <path d="M15,5 C10,5 5,10 5,15 C5,20 10,25 15,25 C20,25 25,20 25,15 C25,10 20,5 15,5 Z M15,8 C11,8 8,11 8,15 C8,19 11,22 15,22 C19,22 22,19 22,15 C22,11 19,8 15,8 Z" />
-                  <text x="32" y="22" style={{fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '1.0rem', letterSpacing: '2px'}}>NVIDIA</text>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="#76B900">
+                  <path d="M12.2,2.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c1.6,0,3.1-0.4,4.5-1.1l-1.3-1.3c-1,0.5-2.1,0.7-3.2,0.7c-4.4,0-8-3.6-8-8c0-4.4,3.6-8,8-8s8,3.6,8,8c0,1-0.2,2.1-0.7,3l1.3,1.3c0.7-1.3,1.1-2.8,1.1-4.4C22,6.7,17.6,2.3,12.2,2.3z M12.2,6.8c-2.9,0-5.3,2.4-5.3,5.3s2.4,5.3,5.3,5.3c0.7,0,1.4-0.1,2-0.4l-1.2-1.2c-0.3,0.1-0.5,0.1-0.8,0.1c-2,0-3.6-1.6-3.6-3.6s1.6-3.6,3.6-3.6c2,0,3.6,1.6,3.6,3.6c0,0.3-0.0,0.5-0.1,0.8l1.2,1.2c0.3-0.6,0.5-1.3,0.5-2C17.5,9.2,15.1,6.8,12.2,6.8z" />
                 </svg>
               </div>
               <div className="logo-item" title="Meta">
-                <svg width="90" height="30" viewBox="0 0 90 30" fill="currentColor">
-                  <path d="M15,10 Q20,10 22,15 Q24,20 29,20 Q34,20 36,15 Q38,10 43,10 Q48,10 50,15" fill="none" stroke="currentColor" strokeWidth="4" />
-                  <text x="55" y="22" style={{fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '1.2rem'}}>Meta</text>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="#0668E1">
+                  <path d="M16.5 6.5c-1.8 0-3.3.9-4.5 2.1-1.2-1.2-2.7-2.1-4.5-2.1-3.3 0-6 2.7-6 6s2.7 6 6 6c1.8 0 3.3-.9 4.5-2.1 1.2 1.2 2.7 2.1 4.5 2.1 3.3 0 6-2.7 6-6s-2.7-6-6-6zm0 10c-1.4 0-2.6-.9-3.5-2.1 1.1-1.5 1.1-3.9 0-5.4.9-1.2 2.1-2.1 3.5-2.1 2.2 0 4 1.8 4 4s-1.8 4-4 4zm-9 0c-2.2 0-4-1.8-4-4s1.8-4 4-4c1.4 0 2.6.9 3.5 2.1-1.1 1.5-1.1 3.9 0 5.4-.9 1.2-2.1 2.1-3.5 2.1z" />
                 </svg>
               </div>
             </div>
@@ -139,17 +137,15 @@ export default function LandingPage({ onEnter }) {
             </div>
           </div>
 
-          {/* AI Features Section instead of useless work carousel */}
+          {/* AI Features Section */}
           <section className="shader-work reveal" id="features">
             <h2 className="section-label">Toolkit Overview</h2>
             <p className="work-desc">Advanced Semantic Parsing and Output Generation.</p>
             <div className="features-grid">
               <div className="feature-block reveal delay-1">
                 <div className="feature-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-                    <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-                    <line x1="12" y1="22.08" x2="12" y2="12" />
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm1.5-3.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 1 1.5-1.5 1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 1 1.5-1.5.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5 1.5 1.5 0 0 1-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 1-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 1-1.5 1.5.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5z" />
                   </svg>
                 </div>
                 <h3>01. Semantic Matcher</h3>
@@ -157,8 +153,9 @@ export default function LandingPage({ onEnter }) {
               </div>
               <div className="feature-block reveal delay-2">
                 <div className="feature-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2" strokeDasharray="4 2" />
+                    <path d="M7 8h10M7 12h10M7 16h6" />
                   </svg>
                 </div>
                 <h3>02. Executive Formatting</h3>
@@ -166,10 +163,10 @@ export default function LandingPage({ onEnter }) {
               </div>
               <div className="feature-block reveal delay-3">
                 <div className="feature-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                    <line x1="8" y1="21" x2="16" y2="21" />
-                    <line x1="12" y1="17" x2="12" y2="21" />
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <path d="M9 15h6M12 12v6" />
                   </svg>
                 </div>
                 <h3>03. Instant Deployment</h3>

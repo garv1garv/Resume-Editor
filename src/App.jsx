@@ -530,14 +530,17 @@ function App() {
             {/* Header */}
             <header className="app-header shader-app-header">
               <div className="header-brand">
-                <svg width="42" height="42" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="6" y="4" width="28" height="32" rx="6" fill="url(#logo_grad)" />
-                  <path d="M34 14L24 4V10C24 12.2091 25.7909 14 28 14H34Z" fill="rgba(255,255,255,0.4)" />
-                  <path d="M23.5 15L16.5 24H21L19 31L26.5 21H22L23.5 15Z" fill="white" />
+                <svg width="42" height="42" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* Stylized Anvil for 'Forge' */}
+                  <path d="M20 70 L80 70 L85 85 L15 85 Z" fill="url(#logo_grad)" fillOpacity="0.3" />
+                  <path d="M30 30 L70 30 L85 45 L85 60 L15 60 L15 45 Z" fill="url(#logo_grad)" />
+                  <path d="M15 45 C15 45 5 45 5 35 C5 25 15 25 25 25 L30 30" stroke="url(#logo_grad)" strokeWidth="4" />
+                  <path d="M50 30 L50 15 L65 15" stroke="url(#logo_grad)" strokeWidth="4" strokeLinecap="round" />
+                  <circle cx="50" cy="45" r="4" fill="#06080a" />
                   <defs>
-                    <linearGradient id="logo_grad" x1="6" y1="4" x2="34" y2="36" gradientUnits="userSpaceOnUse">
-                      <stop stopColor="#0ea5e9" />
-                      <stop offset="1" stopColor="#10b981" />
+                    <linearGradient id="logo_grad" x1="10" y1="5" x2="90" y2="95" gradientUnits="userSpaceOnUse">
+                      <stop stopColor="#10b981" />
+                      <stop offset="1" stopColor="#0ea5e9" />
                     </linearGradient>
                   </defs>
                 </svg>
