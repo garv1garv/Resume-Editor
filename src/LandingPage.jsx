@@ -1,13 +1,52 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './LandingPage.css';
+
+function useItersectionObserver(options = {}) {
+  const [elements, setElements] = useState([]);
+  const [entries, setEntries] = useState([]);
+
+  const observer = useRef(
+    new IntersectionObserver((observedEntries) => {
+      setEntries(observedEntries);
+    }, options)
+  );
+
+  useEffect(() => {
+    const currentObserver = observer.current;
+    currentObserver.disconnect();
+    if (elements.length) {
+      elements.forEach(elem => currentObserver.observe(elem));
+    }
+    return () => currentObserver.disconnect();
+  }, [elements]);
+
+  return [setElements, entries];
+}
 
 export default function LandingPage({ onEnter }) {
   const [scrollY, setScrollY] = useState(0);
 
+  // Simple scroll trigger logic classes
   useEffect(() => {
     const handleScroll = () => requestAnimationFrame(() => setScrollY(window.scrollY));
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    
+    // Intersection observer for `.reveal` elements
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const revealElements = document.querySelectorAll('.reveal');
+    revealElements.forEach(el => observer.observe(el));
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      revealElements.forEach(el => observer.unobserve(el));
+    };
   }, []);
 
   return (
@@ -30,7 +69,7 @@ export default function LandingPage({ onEnter }) {
 
         <div className="scroll-wrapper">
           {/* Hero Section */}
-          <section className="shader-hero">
+          <section className="shader-hero reveal">
             <div className="hero-content">
               <h1 className="hero-title" style={{ transform: `translateY(${scrollY * -0.2}px)` }}>
                 An AI Resume Studio, <br />
@@ -42,19 +81,28 @@ export default function LandingPage({ onEnter }) {
             </div>
           </section>
 
-          {/* Selected Work Carousel Placeholder */}
-          <section className="shader-work" id="work">
-            <h2 className="section-label">Selected Work</h2>
-            <p className="work-desc">Browse our portfolio to explore our highest-performing resumes.</p>
-            <div className="carousel-placeholder">
-              <div className="carousel-item">Director of Engineering</div>
-              <div className="carousel-item">Senior Product Designer</div>
-              <div className="carousel-item">Staff AI Researcher</div>
+          {/* AI Features Section instead of useless work carousel */}
+          <section className="shader-work reveal" id="features">
+            <h2 className="section-label">Toolkit Overview</h2>
+            <p className="work-desc">Advanced Semantic Parsing and Output Generation.</p>
+            <div className="features-grid">
+              <div className="feature-block reveal delay-1">
+                <h3>01. Semantic Matcher</h3>
+                <p>We analyze your target job description against your background to highlight the perfect linguistic overlap, overriding ATS filters.</p>
+              </div>
+              <div className="feature-block reveal delay-2">
+                <h3>02. Executive Formatting</h3>
+                <p>No generic templates. Built with clean, minimalist typography optimized for human recruiters and high-level decision makers.</p>
+              </div>
+              <div className="feature-block reveal delay-3">
+                <h3>03. Instant Deployment</h3>
+                <p>Modify, regenerate, and export absolute perfect pixel PDFs without navigating clumsy drag-and-drop builders.</p>
+              </div>
             </div>
           </section>
 
           {/* About Us Section */}
-          <section className="shader-about" id="about-us">
+          <section className="shader-about reveal" id="about-us">
             <div className="about-inner">
               <h1 className="about-heading">
                 Making Career Storytelling More <br />
@@ -84,7 +132,7 @@ export default function LandingPage({ onEnter }) {
             </div>
             
             {/* The "Paper" Corporate Division */}
-            <div className="corporate-division">
+            <div className="corporate-division reveal">
               <div className="rainbow-divide"></div>
               <div className="corporate-inner">
                 <p className="pitch-text">
@@ -99,7 +147,7 @@ export default function LandingPage({ onEnter }) {
           </section>
 
           {/* CTA / Footer Section */}
-          <section className="shader-footer" id="contact">
+          <section className="shader-footer reveal" id="contact">
              <div className="rainbow-divide reverse"></div>
              <div className="footer-content">
                <h2 className="footer-pitch">Ready to take your enterprise to the next level?</h2>
