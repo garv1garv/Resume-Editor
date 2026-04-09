@@ -1,39 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-  /* Cinematic Shader Theme - Dark (Default) */
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #111111;
-  --bg-tertiary: #1a1a1a;
-  --bg-card: transparent;
-  --bg-glass: transparent;
-  --bg-glass-hover: rgba(255, 255, 255, 0.05);
+  /* Cinematic Shader Theme - Obsidian & Emerald */
+  --bg-primary: #050505;
+  --bg-secondary: #0A0D14;
+  --bg-tertiary: #131720;
+  
+  --bg-card: rgba(22, 24, 28, 0.4);
+  --bg-glass: rgba(15, 20, 25, 0.6);
+  --bg-glass-hover: rgba(255, 255, 255, 0.08);
 
-  --accent-primary: #ffffff;
-  --accent-secondary: #cccccc;
-  --accent-tertiary: #555555;
-  --accent-gradient: #ffffff;
-  --accent-glow: transparent;
+  --accent-primary: #0ea5e9;
+  --accent-secondary: #0284c7;
+  --accent-tertiary: #38bdf8;
+  --accent-gradient: linear-gradient(135deg, #0ea5e9, #10b981);
+  --accent-glow: rgba(14, 165, 233, 0.3);
 
-  --text-primary: #ffffff;
+  --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
 
-  --border-primary: rgba(255, 255, 255, 0.1);
-  --border-accent: rgba(255, 255, 255, 0.3);
+  --border-primary: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(14, 165, 233, 0.4);
 
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-serif: 'Playfair Display', 'Georgia', serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
 
-  --shadow-glow: none;
-  --glass-blur: none;
-  --shadow-lg: none;
+  --shadow-glow: 0 0 20px rgba(14, 165, 233, 0.2);
+  --glass-blur: blur(12px);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
 
   /* Output Resume Styling (Keep crisp) */
   --resume-bg: #ffffff;

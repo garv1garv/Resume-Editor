@@ -81,6 +81,31 @@ export default function LandingPage({ onEnter }) {
             </div>
           </section>
 
+          {/* Marquee Divider */}
+          <div className="marquee-wrapper">
+            <div className="marquee-content">
+              <span>OBJECTION HANDLING</span>
+              <span className="dot">•</span>
+              <span>SEMANTIC PARSING</span>
+              <span className="dot">•</span>
+              <span>ATS INTELLIGENCE</span>
+              <span className="dot">•</span>
+              <span>EXECUTIVE FORMATTING</span>
+              <span className="dot">•</span>
+              <span>PIXEL PERFECT TYPOGRAPHY</span>
+              <span className="dot">•</span>
+              <span>OBJECTION HANDLING</span>
+              <span className="dot">•</span>
+              <span>SEMANTIC PARSING</span>
+              <span className="dot">•</span>
+              <span>ATS INTELLIGENCE</span>
+              <span className="dot">•</span>
+              <span>EXECUTIVE FORMATTING</span>
+              <span className="dot">•</span>
+              <span>PIXEL PERFECT TYPOGRAPHY</span>
+            </div>
+          </div>
+
           {/* AI Features Section instead of useless work carousel */}
           <section className="shader-work reveal" id="features">
             <h2 className="section-label">Toolkit Overview</h2>

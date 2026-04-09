@@ -1,10 +1,31 @@
+/* ===== BACKGROUND VIDEO ===== */
+.cinematic-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  filter: brightness(0.7) contrast(1.2);
+  z-index: 0; /* Keep underneath everything */
+  pointer-events: none;
+  position: fixed; /* Keep it stationary as user scrolls */
+}
+
+/* Ensure the scroll wrapper creates a new stacking context */
+.scroll-wrapper {
+  position: relative;
+  z-index: 10;
+}
+
 /* ═══════════════════════════════════════════
    LANDING PAGE — Strict Shader.se Aesthetic
    ═══════════════════════════════════════════ */
 
 /* ===== BACKGROUND & CORE ===== */
 .shader-body {
-  background-color: #0d0d0d;
+  background-color: #030303;
   color: #fff;
   min-height: 100vh;
   position: relative;
@@ -15,7 +36,7 @@
 /* ===== MONITOR BEZEL ===== */
 .monitor-bezel {
   position: relative;
-  background-color: #0a0a0a;
+  background-color: #050505;
   border-radius: 2vw; /* Rounded screen corners */
   border: 1px solid rgba(255, 255, 255, 0.05);
   height: calc(100vh - 2vw);
@@ -25,12 +46,14 @@
 }
 
 .screen-glare {
-  position: fixed;
-  top: 1vw; left: 1vw; right: 1vw; bottom: 1vw;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
   border-radius: 2vw;
-  box-shadow: inset 0 0 150px rgba(0,200,255,0.03);
+  box-shadow: inset 0 0 150px rgba(14, 165, 233, 0.03); /* Subtle emerald/cyan glare */
   pointer-events: none;
   z-index: 999;
+  position: fixed;
+  top: 1vw; left: 1vw; right: 1vw; bottom: 1vw;
 }
 
 .film-grain {
@@ -38,16 +61,15 @@
   top: 1vw; left: 1vw; right: 1vw; bottom: 1vw;
   pointer-events: none;
   z-index: 998;
-  opacity: 0.04;
+  opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 128px 128px;
 }
 
-/* Optional subtle scanlines */
 .crts-scanlines {
   position: fixed;
   top: 1vw; left: 1vw; right: 1vw; bottom: 1vw;
-  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.08) 50%, rgba(0,0,0,0.08));
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1));
   background-size: 100% 4px;
   pointer-events: none;
   z-index: 997;
@@ -57,19 +79,20 @@
 /* ===== NAVIGATION ===== */
 .shader-nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 1vw; left: 1vw; right: 1vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 30px 4vw;
   z-index: 100;
-  background: linear-gradient(to bottom, rgba(10,10,10,0.9), transparent);
+  background: linear-gradient(to bottom, rgba(5,5,5,0.9), transparent);
+  border-radius: 2vw 2vw 0 0;
 }
 
 .nav-left {
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   letter-spacing: -0.5px;
 }
 
@@ -82,9 +105,11 @@
 .nav-right a {
   color: #fff;
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 1px;
   position: relative;
   transition: opacity 0.3s;
 }
@@ -94,27 +119,22 @@
 }
 
 .book-call-btn {
-  background: #fff;
-  color: #000;
+  background: var(--accent-gradient);
+  color: #fff;
   border: none;
   border-radius: 100px;
-  padding: 10px 24px;
+  padding: 12px 28px;
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: transform 0.2s, background 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: var(--shadow-glow);
 }
 
 .book-call-btn:hover {
   transform: scale(0.98);
-  background: #eee;
-}
-
-/* ===== SCROLL WRAPPER ===== */
-.scroll-wrapper {
-  position: relative;
-  z-index: 10;
+  box-shadow: 0 0 25px rgba(14, 165, 233, 0.4);
 }
 
 /* ===== HERO ===== */
@@ -124,9 +144,6 @@
   align-items: center;
   padding: 0 4vw;
   position: relative;
-  /* subtle deep blue/magenta 3D glow simulation in bg */
-  background: radial-gradient(circle at 70% 50%, rgba(14, 165, 233, 0.08) 0%, transparent 40%),
-              radial-gradient(circle at 30% 60%, rgba(255, 0, 128, 0.05) 0%, transparent 40%);
 }
 
 .hero-title {
@@ -136,6 +153,7 @@
   line-height: 0.9;
   letter-spacing: -2px;
   margin-top: 10vh;
+  text-shadow: 0 10px 40px rgba(0,0,0,0.5); /* Separate from video */
 }
 
 .hero-title em {
@@ -147,28 +165,31 @@
   position: absolute;
   bottom: 40px;
   left: 4vw;
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: rgba(255,255,255,0.4);
+  color: var(--accent-tertiary);
 }
 
 /* ===== SELECTED WORK ===== */
 .shader-work {
   padding: 15vh 4vw;
   border-top: 1px solid rgba(255,255,255,0.05);
+  background: linear-gradient(180deg, rgba(10,13,20,0.8) 0%, rgba(5,5,5,0) 100%);
+  backdrop-filter: blur(10px);
 }
 
 .section-label {
-  font-family: var(--font-sans);
-  font-size: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   margin-bottom: 20px;
-  color: rgba(255,255,255,0.5);
+  color: var(--text-secondary);
 }
 
+/* Hover interaction for work desc */
 .work-desc {
   font-family: var(--font-serif);
   font-size: clamp(1.5rem, 3vw, 2.5rem);
@@ -177,27 +198,37 @@
   margin-bottom: 60px;
 }
 
-.carousel-placeholder {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  padding-bottom: 40px;
-  scroll-snap-type: x mandatory;
+/* Marquee Effect */
+.marquee-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  padding: 30px 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  background: var(--bg-tertiary);
 }
 
-.carousel-item {
-  min-width: 60vw;
-  height: 40vh;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-sans);
+.marquee-content {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+  font-family: var(--font-mono);
   font-size: 1.5rem;
-  color: rgba(255,255,255,0.3);
-  scroll-snap-align: center;
+  font-weight: 600;
+  color: var(--accent-tertiary);
+  letter-spacing: 2px;
+}
+
+.marquee-content span {
+  padding: 0 40px;
+}
+
+.marquee-content .dot {
+  color: var(--accent-gradient);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* Features Grid */
@@ -209,29 +240,50 @@
 }
 
 .feature-block {
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 4px; /* Minimalist / brutalist */
-  transition: background 0.3s ease;
+  padding: 40px 30px;
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--accent-gradient);
+  opacity: 0;
+  transition: opacity 0.4s;
 }
 
 .feature-block:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-glass-hover);
+  border-color: var(--border-accent);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-block:hover::before {
+  opacity: 1;
 }
 
 .feature-block h3 {
   font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: 1.2rem;
+  font-weight: 600;
+  font-size: 1.4rem;
   margin-bottom: 20px;
+  color: var(--text-primary);
 }
 
 .feature-block p {
-  font-family: var(--font-serif);
-  font-size: 1.1rem;
-  line-height: 1.5;
-  color: rgba(255,255,255,0.6);
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
 }
 
 /* Scroll Revealing Animation System */
@@ -257,6 +309,7 @@
 
 .about-inner {
   padding: 0 4vw 15vh;
+  backdrop-filter: blur(5px);
 }
 
 .about-heading {
@@ -289,19 +342,21 @@
 
 /* ===== CORPORATE/PAPER SECTION ===== */
 .corporate-division {
-  background-color: #F5F5F0; /* The exact paper white/beige Shader uses */
-  color: #000;
+  background-color: #E8E6E1; /* The exact paper Warm Vellum proposed */
+  color: #2C2A29;
   position: relative;
+  z-index: 20; /* Keep it above the video bg masking it completely */
 }
 
 .rainbow-divide {
-  height: 8px;
+  height: 4px;
   width: 100%;
-  background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+  background: var(--accent-gradient);
+  box-shadow: 0 0 20px var(--accent-tertiary);
 }
 
 .rainbow-divide.reverse {
-  background: linear-gradient(to left, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+  background: linear-gradient(to left, #10b981, #0ea5e9);
 }
 
 .corporate-inner {
@@ -310,19 +365,21 @@
 }
 
 .pitch-text {
-  font-family: var(--font-sans);
-  font-size: clamp(1.2rem, 2vw, 1.8rem);
-  line-height: 1.4;
-  font-weight: 500;
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  line-height: 1.5;
+  font-weight: 400;
   letter-spacing: -0.5px;
 }
 
 /* ===== FOOTER ===== */
 .shader-footer {
-  background-color: #0d0d0d;
+  background-color: #050505;
   min-height: 80vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 20; /* Masking the video */
 }
 
 .footer-content {
@@ -344,7 +401,7 @@
   font-family: var(--font-sans);
   font-size: 1.1rem;
   line-height: 1.6;
-  color: rgba(255,255,255,0.6);
+  color: var(--text-secondary);
   max-width: 800px;
   margin-bottom: 60px;
 }
@@ -358,13 +415,13 @@
 }
 
 .book-call-large {
-  background: #fff;
+  background: var(--text-primary);
   color: #000;
   border: none;
   border-radius: 100px;
   padding: 20px 40px;
   font-family: var(--font-sans);
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.2rem;
   letter-spacing: -0.5px;
   cursor: pointer;
@@ -373,7 +430,7 @@
 
 .book-call-large:hover {
   transform: scale(0.98);
-  background: #eee;
+  background: var(--accent-tertiary);
 }
 
 .footer-bottom {
@@ -406,6 +463,7 @@
 
 .footer-col a:hover {
   opacity: 0.6;
+  color: var(--accent-primary);
 }
 
 .footer-col.right {

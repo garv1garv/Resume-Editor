@@ -495,6 +495,20 @@ function App() {
     <div className="shader-body">
       {/* Physical Monitor Bezel / Frame */}
       <div className="monitor-bezel">
+        {/* Cinematic Video Background */}
+        <video 
+          className="cinematic-video-bg" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        >
+          <source 
+            src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-plexus-background-28872-large.mp4" 
+            type="video/mp4" 
+          />
+        </video>
+
         <div className="screen-glare"></div>
         <div className="crts-scanlines"></div>
         <div className="film-grain"></div>
