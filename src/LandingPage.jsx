@@ -81,6 +81,19 @@ export default function LandingPage({ onEnter }) {
             </div>
           </section>
 
+          {/* Trusted By Client Logos */}
+          <section className="client-logos-section">
+            <p className="client-label">TRUSTED BY ENGINEERS & DESIGNERS AT</p>
+            <div className="logos-grid">
+              {/* Minimalist text/svg representations */}
+              <div className="logo-item" style={{ fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: '1.4rem' }}>GOOG<span style={{color: 'var(--accent-tertiary)'}}>L</span>E</div>
+              <div className="logo-item" style={{ fontFamily: 'var(--font-serif)', fontWeight: 600, fontSize: '1.4rem' }}>Netflix</div>
+              <div className="logo-item" style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '1.2rem', letterSpacing: '2px' }}>NVIDIA</div>
+              <div className="logo-item" style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '1.5rem', letterSpacing: '-1px' }}>Spotify</div>
+              <div className="logo-item" style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '1.4rem' }}>Meta</div>
+            </div>
+          </section>
+
           {/* Marquee Divider */}
           <div className="marquee-wrapper">
             <div className="marquee-content">

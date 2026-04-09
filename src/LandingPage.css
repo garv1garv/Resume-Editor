@@ -172,6 +172,49 @@
   color: var(--accent-tertiary);
 }
 
+/* ===== CLIENT LOGOS ===== */
+.client-logos-section {
+  padding: 6vh 4vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(180deg, transparent, rgba(5,5,5,0.8));
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+
+.client-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+.logos-grid {
+  display: flex;
+  gap: 5vw;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0.4;
+  transition: opacity 0.5s;
+}
+
+.logos-grid:hover {
+  opacity: 1;
+}
+
+.logo-item {
+  color: #fff;
+  transition: transform 0.3s, color 0.3s;
+  cursor: default;
+}
+
+.logo-item:hover {
+  transform: scale(1.05);
+  color: var(--accent-secondary);
+}
+
 /* ===== SELECTED WORK ===== */
 .shader-work {
   padding: 15vh 4vw;
