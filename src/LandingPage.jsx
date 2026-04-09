@@ -85,12 +85,32 @@ export default function LandingPage({ onEnter }) {
           <section className="client-logos-section">
             <p className="client-label">TRUSTED BY ENGINEERS & DESIGNERS AT</p>
             <div className="logos-grid">
-              {/* Minimalist text/svg representations */}
-              <div className="logo-item" style={{ fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: '1.4rem' }}>GOOG<span style={{color: 'var(--accent-tertiary)'}}>L</span>E</div>
-              <div className="logo-item" style={{ fontFamily: 'var(--font-serif)', fontWeight: 600, fontSize: '1.4rem' }}>Netflix</div>
-              <div className="logo-item" style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '1.2rem', letterSpacing: '2px' }}>NVIDIA</div>
-              <div className="logo-item" style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '1.5rem', letterSpacing: '-1px' }}>Spotify</div>
-              <div className="logo-item" style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '1.4rem' }}>Meta</div>
+              {/* Minimalist SVG representations */}
+              <div className="logo-item" title="Google">
+                <svg width="120" height="30" viewBox="0 0 120 30" fill="currentColor">
+                  <path d="M12.5,15c0-1.2,0.2-2.3,0.6-3.3l-5.6-4.3C6.4,9,5.7,12,5.7,15s0.8,6,1.9,7.7l5.6-4.3C12.7,17.3,12.5,16.2,12.5,15z"/>
+                  <path d="M21.5,12.5c-4,0-7.3,3.3-7.3,7.3s3.3,7.3,7.3,7.3s7.3-3.3,7.3-7.3S25.5,12.5,21.5,12.5z M21.5,23.8 c-2.3,0-4-1.7-4-4s1.7-4,4-4s4,1.7,4,4S23.8,23.8,21.5,23.8z"/>
+                  <text x="35" y="22" style={{fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: '1.2rem', letterSpacing: '-1px'}}>GOOGLE</text>
+                </svg>
+              </div>
+              <div className="logo-item" title="Netflix">
+                <svg width="100" height="30" viewBox="0 0 100 30" fill="currentColor">
+                  <path d="M10,5 L15,5 L15,25 L10,25 Z M20,5 L25,5 L25,25 L20,25 Z M10,5 L25,25 L20,25 L5,5 Z" />
+                  <text x="32" y="22" style={{fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: '1.1rem'}}>NETFLIX</text>
+                </svg>
+              </div>
+              <div className="logo-item" title="NVIDIA">
+                <svg width="110" height="30" viewBox="0 0 110 30" fill="currentColor">
+                  <path d="M15,5 C10,5 5,10 5,15 C5,20 10,25 15,25 C20,25 25,20 25,15 C25,10 20,5 15,5 Z M15,8 C11,8 8,11 8,15 C8,19 11,22 15,22 C19,22 22,19 22,15 C22,11 19,8 15,8 Z" />
+                  <text x="32" y="22" style={{fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: '1.0rem', letterSpacing: '2px'}}>NVIDIA</text>
+                </svg>
+              </div>
+              <div className="logo-item" title="Meta">
+                <svg width="90" height="30" viewBox="0 0 90 30" fill="currentColor">
+                  <path d="M15,10 Q20,10 22,15 Q24,20 29,20 Q34,20 36,15 Q38,10 43,10 Q48,10 50,15" fill="none" stroke="currentColor" strokeWidth="4" />
+                  <text x="55" y="22" style={{fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '1.2rem'}}>Meta</text>
+                </svg>
+              </div>
             </div>
           </section>
 
@@ -125,14 +145,33 @@ export default function LandingPage({ onEnter }) {
             <p className="work-desc">Advanced Semantic Parsing and Output Generation.</p>
             <div className="features-grid">
               <div className="feature-block reveal delay-1">
+                <div className="feature-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                    <line x1="12" y1="22.08" x2="12" y2="12" />
+                  </svg>
+                </div>
                 <h3>01. Semantic Matcher</h3>
                 <p>We analyze your target job description against your background to highlight the perfect linguistic overlap, overriding ATS filters.</p>
               </div>
               <div className="feature-block reveal delay-2">
+                <div className="feature-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                  </svg>
+                </div>
                 <h3>02. Executive Formatting</h3>
                 <p>No generic templates. Built with clean, minimalist typography optimized for human recruiters and high-level decision makers.</p>
               </div>
               <div className="feature-block reveal delay-3">
+                <div className="feature-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                    <line x1="8" y1="21" x2="16" y2="21" />
+                    <line x1="12" y1="17" x2="12" y2="21" />
+                  </svg>
+                </div>
                 <h3>03. Instant Deployment</h3>
                 <p>Modify, regenerate, and export absolute perfect pixel PDFs without navigating clumsy drag-and-drop builders.</p>
               </div>
@@ -202,9 +241,9 @@ export default function LandingPage({ onEnter }) {
                    <a href="mailto:hello@resumeforge.ai">hello@resumeforge.ai</a>
                  </div>
                  <div className="footer-col">
-                   <a href="#" className="footer-link">LinkedIn</a>
-                   <a href="#" className="footer-link">Instagram</a>
-                   <a href="#" className="footer-link">X (Twitter)</a>
+                   <a href="#" className="footer-link"><span className="link-dot"></span> LinkedIn</a>
+                   <a href="#" className="footer-link"><span className="link-dot"></span> Instagram</a>
+                   <a href="#" className="footer-link"><span className="link-dot"></span> X (Twitter)</a>
                  </div>
                  <div className="footer-col right">
                    <span>Reach out today to our CEO</span>

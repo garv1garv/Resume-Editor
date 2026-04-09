@@ -90,124 +90,128 @@ function ResumePreview({ data }) {
   }
 
   return (
-    <div className="resume-preview" id="resume-preview">
-      {/* Header */}
-      <h1>{data.contact?.name || 'Your Name'}</h1>
-      {data.contact?.title && <div className="resume-title">{data.contact.title}</div>}
+    <div className="resume-preview-container">
+      <div className="scanning-bar"></div>
+      <div className="hud-text preview-metadata">[PREVIEW_MODE: ACTIVE] | STATUS: SYNCED</div>
+      <div className="resume-preview" id="resume-preview">
+        {/* Header */}
+        <h1>{data.contact?.name || 'Your Name'}</h1>
+        {data.contact?.title && <div className="resume-title">{data.contact.title}</div>}
 
-      <div className="resume-contact-line">
-        {data.contact?.email && <><a href={`mailto:${data.contact.email}`}>{data.contact.email}</a><span className="sep">•</span></>}
-        {data.contact?.phone && <><span>{data.contact.phone}</span><span className="sep">•</span></>}
-        {data.contact?.location && <span>{data.contact.location}</span>}
-      </div>
-
-      <div className="resume-contact-line">
-        {data.contact?.linkedin && <><a href={data.contact.linkedin} target="_blank" rel="noreferrer">LinkedIn</a><span className="sep">|</span></>}
-        {data.contact?.github && <><a href={data.contact.github} target="_blank" rel="noreferrer">GitHub</a><span className="sep">|</span></>}
-        {data.contact?.portfolio && <a href={data.contact.portfolio} target="_blank" rel="noreferrer">Portfolio</a>}
-      </div>
-
-      <hr className="resume-divider" />
-
-      {/* Summary */}
-      {data.summary && (
-        <div className="resume-section">
-          <div className="resume-section-title">Professional Summary</div>
-          <p style={{ fontSize: '9.5pt', color: '#1e293b', lineHeight: 1.55 }}>{data.summary}</p>
+        <div className="resume-contact-line">
+          {data.contact?.email && <><a href={`mailto:${data.contact.email}`}>{data.contact.email}</a><span className="sep">•</span></>}
+          {data.contact?.phone && <><span>{data.contact.phone}</span><span className="sep">•</span></>}
+          {data.contact?.location && <span>{data.contact.location}</span>}
         </div>
-      )}
 
-      {/* Skills */}
-      {data.skills && Object.values(data.skills).some(a => a?.length > 0) && (
-        <div className="resume-section">
-          <div className="resume-section-title">Technical Skills</div>
-          <div className="resume-skills-grid">
-            {data.skills.languages?.length > 0 && <div className="resume-skill-row"><strong>Languages: </strong>{data.skills.languages.join(', ')}</div>}
-            {data.skills.frameworks?.length > 0 && <div className="resume-skill-row"><strong>Frameworks & Libraries: </strong>{data.skills.frameworks.join(', ')}</div>}
-            {data.skills.tools?.length > 0 && <div className="resume-skill-row"><strong>Tools & Platforms: </strong>{data.skills.tools.join(', ')}</div>}
-            {data.skills.domains?.length > 0 && <div className="resume-skill-row"><strong>Domains: </strong>{data.skills.domains.join(', ')}</div>}
+        <div className="resume-contact-line">
+          {data.contact?.linkedin && <><a href={data.contact.linkedin} target="_blank" rel="noreferrer">LinkedIn</a><span className="sep">|</span></>}
+          {data.contact?.github && <><a href={data.contact.github} target="_blank" rel="noreferrer">GitHub</a><span className="sep">|</span></>}
+          {data.contact?.portfolio && <a href={data.contact.portfolio} target="_blank" rel="noreferrer">Portfolio</a>}
+        </div>
+
+        <hr className="resume-divider" />
+
+        {/* Summary */}
+        {data.summary && (
+          <div className="resume-section">
+            <div className="resume-section-title">Professional Summary</div>
+            <p style={{ fontSize: '9.5pt', color: '#1e293b', lineHeight: 1.55 }}>{data.summary}</p>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Experience */}
-      {data.experience?.length > 0 && (
-        <div className="resume-section">
-          <div className="resume-section-title">Professional Experience</div>
-          {data.experience.map((exp, i) => (
-            <div key={i} className="resume-entry">
-              <div className="resume-entry-header">
-                <span className="resume-entry-title">{exp.title}</span>
-                <span className="resume-entry-date">{exp.startDate} – {exp.endDate}</span>
-              </div>
-              <div className="resume-entry-subtitle">{[exp.company, exp.location].filter(Boolean).join(', ')}</div>
-              {exp.highlights?.length > 0 && (
-                <ul>{exp.highlights.map((h, j) => <li key={j}>{h}</li>)}</ul>
-              )}
+        {/* Skills */}
+        {data.skills && Object.values(data.skills).some(a => a?.length > 0) && (
+          <div className="resume-section">
+            <div className="resume-section-title">Technical Skills</div>
+            <div className="resume-skills-grid">
+              {data.skills.languages?.length > 0 && <div className="resume-skill-row"><strong>Languages: </strong>{data.skills.languages.join(', ')}</div>}
+              {data.skills.frameworks?.length > 0 && <div className="resume-skill-row"><strong>Frameworks & Libraries: </strong>{data.skills.frameworks.join(', ')}</div>}
+              {data.skills.tools?.length > 0 && <div className="resume-skill-row"><strong>Tools & Platforms: </strong>{data.skills.tools.join(', ')}</div>}
+              {data.skills.domains?.length > 0 && <div className="resume-skill-row"><strong>Domains: </strong>{data.skills.domains.join(', ')}</div>}
             </div>
-          ))}
-        </div>
-      )}
+          </div>
+        )}
 
-      {/* Projects */}
-      {data.projects?.length > 0 && (
-        <div className="resume-section">
-          <div className="resume-section-title">Projects</div>
-          {data.projects.map((proj, i) => (
-            <div key={i} className="resume-entry">
-              <div className="resume-entry-header">
-                <span className="resume-entry-title">
-                  {proj.link ? <a className="resume-project-link" href={proj.link} target="_blank" rel="noreferrer">{proj.name}</a> : proj.name}
-                </span>
-                {proj.technologies?.length > 0 && <span className="resume-project-tech">{proj.technologies.join(' • ')}</span>}
+        {/* Experience */}
+        {data.experience?.length > 0 && (
+          <div className="resume-section">
+            <div className="resume-section-title">Professional Experience</div>
+            {data.experience.map((exp, i) => (
+              <div key={i} className="resume-entry">
+                <div className="resume-entry-header">
+                  <span className="resume-entry-title">{exp.title}</span>
+                  <span className="resume-entry-date">{exp.startDate} – {exp.endDate}</span>
+                </div>
+                <div className="resume-entry-subtitle">{[exp.company, exp.location].filter(Boolean).join(', ')}</div>
+                {exp.highlights?.length > 0 && (
+                  <ul>{exp.highlights.map((h, j) => <li key={j}>{h}</li>)}</ul>
+                )}
               </div>
-              {proj.description && <p style={{ fontSize: '9pt', color: '#334155', marginBottom: 3 }}>{proj.description}</p>}
-              {proj.highlights?.length > 0 && (
-                <ul>{proj.highlights.map((h, j) => <li key={j}>{h}</li>)}</ul>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
 
-      {/* Education */}
-      {data.education?.length > 0 && (
-        <div className="resume-section">
-          <div className="resume-section-title">Education</div>
-          {data.education.map((edu, i) => (
-            <div key={i} className="resume-entry">
-              <div className="resume-entry-header">
-                <span className="resume-entry-title">{edu.degree}</span>
-                <span className="resume-entry-date">{edu.graduationDate}</span>
+        {/* Projects */}
+        {data.projects?.length > 0 && (
+          <div className="resume-section">
+            <div className="resume-section-title">Projects</div>
+            {data.projects.map((proj, i) => (
+              <div key={i} className="resume-entry">
+                <div className="resume-entry-header">
+                  <span className="resume-entry-title">
+                    {proj.link ? <a className="resume-project-link" href={proj.link} target="_blank" rel="noreferrer">{proj.name}</a> : proj.name}
+                  </span>
+                  {proj.technologies?.length > 0 && <span className="resume-project-tech">{proj.technologies.join(' • ')}</span>}
+                </div>
+                {proj.description && <p style={{ fontSize: '9pt', color: '#334155', marginBottom: 3 }}>{proj.description}</p>}
+                {proj.highlights?.length > 0 && (
+                  <ul>{proj.highlights.map((h, j) => <li key={j}>{h}</li>)}</ul>
+                )}
               </div>
-              <div className="resume-entry-subtitle">
-                {[edu.school, edu.location].filter(Boolean).join(', ')}
-                {edu.gpa && ` | GPA: ${edu.gpa}`}
-              </div>
-              {edu.highlights?.length > 0 && (
-                <ul>{edu.highlights.map((h, j) => <li key={j}>{h}</li>)}</ul>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
 
-      {/* Certifications */}
-      {data.certifications?.length > 0 && (
-        <div className="resume-section">
-          <div className="resume-section-title">Certifications</div>
-          {data.certifications.map((cert, i) => (
-            <div key={i} className="resume-entry">
-              <div className="resume-entry-header">
-                <span className="resume-entry-title">
-                  {cert.link ? <a className="resume-cert-link" href={cert.link} target="_blank" rel="noreferrer">{cert.name}</a> : cert.name}
-                </span>
-                <span className="resume-entry-date">{[cert.issuer, cert.date].filter(Boolean).join(' • ')}</span>
+        {/* Education */}
+        {data.education?.length > 0 && (
+          <div className="resume-section">
+            <div className="resume-section-title">Education</div>
+            {data.education.map((edu, i) => (
+              <div key={i} className="resume-entry">
+                <div className="resume-entry-header">
+                  <span className="resume-entry-title">{edu.degree}</span>
+                  <span className="resume-entry-date">{edu.graduationDate}</span>
+                </div>
+                <div className="resume-entry-subtitle">
+                  {[edu.school, edu.location].filter(Boolean).join(', ')}
+                  {edu.gpa && ` | GPA: ${edu.gpa}`}
+                </div>
+                {edu.highlights?.length > 0 && (
+                  <ul>{edu.highlights.map((h, j) => <li key={j}>{h}</li>)}</ul>
+                )}
               </div>
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
+
+        {/* Certifications */}
+        {data.certifications?.length > 0 && (
+          <div className="resume-section">
+            <div className="resume-section-title">Certifications</div>
+            {data.certifications.map((cert, i) => (
+              <div key={i} className="resume-entry">
+                <div className="resume-entry-header">
+                  <span className="resume-entry-title">
+                    {cert.link ? <a className="resume-cert-link" href={cert.link} target="_blank" rel="noreferrer">{cert.name}</a> : cert.name}
+                  </span>
+                  <span className="resume-entry-date">{[cert.issuer, cert.date].filter(Boolean).join(' • ')}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -539,7 +543,13 @@ function App() {
                 </svg>
                 <div className="brand-text-stack">
                   <div className="header-title">ResumeForge AI</div>
-                  <div className="header-subtitle hud-text">[SYS.ACTIVE] Protocol Ready</div>
+                  <div className="header-metadata">
+                    <span className="hud-text">[SYS.ACTIVE]</span>
+                    <span className="hud-text divider">|</span>
+                    <span className="hud-text">[PROT.A9]</span>
+                    <span className="hud-text divider">|</span>
+                    <span className="hud-text">[SYNC.穩定]</span>
+                  </div>
                 </div>
               </div>
               <div className="header-actions">
