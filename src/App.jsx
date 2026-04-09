@@ -494,7 +494,17 @@ function App() {
       {/* Header */}
       <header className="app-header">
         <div className="header-brand">
-          <div className="header-logo">R</div>
+          <svg width="42" height="42" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0px 4px 12px rgba(16, 185, 129, 0.3))' }}>
+            <rect x="6" y="4" width="28" height="32" rx="6" fill="url(#logo_grad)" />
+            <path d="M34 14L24 4V10C24 12.2091 25.7909 14 28 14H34Z" fill="rgba(255,255,255,0.4)" />
+            <path d="M23.5 15L16.5 24H21L19 31L26.5 21H22L23.5 15Z" fill="white" />
+            <defs>
+              <linearGradient id="logo_grad" x1="6" y1="4" x2="34" y2="36" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#10b981" />
+                <stop offset="1" stopColor="#0ea5e9" />
+              </linearGradient>
+            </defs>
+          </svg>
           <div>
             <div className="header-title">ResumeForge AI</div>
             <div className="header-subtitle">AI-Powered Resume Builder</div>

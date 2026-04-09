@@ -28,19 +28,6 @@
   gap: 16px;
 }
 
-.header-logo {
-  width: 44px;
-  height: 44px;
-  background: var(--accent-gradient);
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 22px;
-  color: white;
-  box-shadow: var(--shadow-glow);
-}
 
 .header-title {
   font-weight: 800;
