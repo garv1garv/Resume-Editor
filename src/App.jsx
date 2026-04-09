@@ -3,6 +3,7 @@ import './App.css';
 import { initGemini, generateTailoredResume } from './utils/gemini';
 import { fetchGitHubRepos } from './utils/github';
 import { downloadPDF } from './utils/pdfGenerator';
+import LandingPage from './LandingPage';
 
 // ===== ICONS (inline SVGs for zero-dep) =====
 const Icons = {
@@ -213,6 +214,7 @@ function ResumePreview({ data }) {
 
 // ===== MAIN APP =====
 function App() {
+  const [view, setView] = useState('landing');
   const [data, setData] = useState(DEFAULT_DATA);
   const [atsData, setAtsData] = useState(null);
   const [theme, setTheme] = useState('dark');
@@ -488,6 +490,10 @@ function App() {
 
   // Skill input refs
   const skillInputRefs = useRef({});
+
+  if (view === 'landing') {
+    return <LandingPage onEnter={() => setView('editor')} />;
+  }
 
   return (
     <div className="app">
